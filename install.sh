@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Run as sh ./install.sh <full_path_to_centos7_dvd.iso>
+# Run as sh ./install.sh <full_path_to_OL8_dvd.iso>
 
 # Note: your external network interface must be configuured, up and running
 # It will be put in "external zone" of firewalld by this script
@@ -10,10 +10,9 @@
 
 if [ "$1" = "-h" ]; then
     echo "Usage: `basename $0` /path/to/OS_DVD.iso"
-    echo "If you need to download OS DVD, use just `basename $0 ` -d"
     exit 0
 elif [ "$1" = "" ]; then
-    echo "You have to supply the location if the CentOS 7 ISO file see `basename $0 -h`"
+    echo "You have to supply the location if the OL8 dvd ISO file see `basename $0 -h`"
     exit 0
 elif [ ! -z "$1" ]; then
     if [ -f $1 ]; then isoname=$1; fi
@@ -27,14 +26,11 @@ chmod -R +x ./scripts/*
 cat ./configs/epel.repo > /etc/yum.repos.d/epel.repo
 
 #yum install epel-release -y
-
-wget http://mirror.centos.org/centos/7/os/x86_64/Packages/readline-6.2-10.el7.x86_64.rpm
-
-#yum remove NetworkManager -y
 #yum install network-scripts -y #depricated
+
 yum install readline ncurses-compat-libs perl -y
 
-#pdsh issue
+#fixing pdsh issue
 ln -s /usr/lib64/libreadline.so.7 /usr/lib64/libreadline.so.6
 ln -s /usr/lib64/libhistory.so.7 /usr/lib64/libhistory.so.6
 mkdir rpms
@@ -48,8 +44,7 @@ cd ../
 
 yum install mc nano net-tools nfs-utils dhcp-server tftp httpd openssh-server firewalld tftp-server git xinetd syslinux shim syslinux-tftpboot wget vsftpd opensm pdsh infiniband-diags -y
 
-#ln -s /var/lib/tftpboot /tftpboot
-#mkdir -p /tftpboot/netboot
+mkdir -p /tftpboot
 
 # nodes will write their macs to:
 chmod -R 777 /tftpboot
