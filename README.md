@@ -21,7 +21,7 @@ Do not add any users during initial installation of the head node (only root). Y
     
 Please do not e-mail me asking for support. These scripts are not guaranteed to work and are provided for your self-development. However if you are interested, you can join this project and contribute to its development on GitHub.
 
-3) cd OL8hpc
+3) cd oracle_linux_8_hpc
 
 4) Your installed master node must have the external network adapter configured, up and running, e.g. with NetworkManager or any other way. 
 
