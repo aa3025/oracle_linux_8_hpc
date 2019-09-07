@@ -33,7 +33,7 @@ yum install readline ncurses-compat-libs perl -y
 #fixing pdsh issue
 ln -s /usr/lib64/libreadline.so.7 /usr/lib64/libreadline.so.6
 ln -s /usr/lib64/libhistory.so.7 /usr/lib64/libhistory.so.6
-mkdir rpms
+mkdir -p rpms
 cd rpms
 wget https://yum.oracle.com/repo/OracleLinux/OL7/developer_EPEL/x86_64/getPackage/pdsh-2.31-1.el7.x86_64.rpm
 wget https://yum.oracle.com/repo/OracleLinux/OL7/developer_EPEL/x86_64/getPackage/pdsh-rcmd-ssh-2.31-1.el7.x86_64.rpm
