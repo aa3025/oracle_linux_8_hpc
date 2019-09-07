@@ -15,7 +15,8 @@ get the updated version of this repository
 
 2.3 If you failed to do above steps do not proceed further.
 
-Please do not e-mail me asking for support. These scripts are not guaranteed to work and are provided for your self-development. However if you are interested, you can join this project and contribute to its development on GitHub.
+Please do not e-mail asking for support. These scripts are not guaranteed to work and are provided for your self-development. However if you are interested, you can join this project and contribute to its development on GitHub.
+Next,
 
 cd OL8hpc
 
