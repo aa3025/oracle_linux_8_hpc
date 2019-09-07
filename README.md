@@ -1,6 +1,8 @@
 # Oracle Linux 8 HPC
 This project is collection of bash scripts and config files to automatically deploy rhel8-based HPC with PXE-install and kickstart files. Supports both BIOS-based and EFI PXE scenarios. Project's webpage is here: https://centoshpc.wordpress.com/
 
+Please do not e-mail me asking for support. These scripts are not guaranteed to work and are provided for your self-development. However if you are interested, you can join this project and contribute to its development on GitHub.
+
 Terms: 
     - master is the headnode of HPC, it must be installed first from official Oracle Linux 8 dvd
     - node(s) are compute nodes which reside in a pivate network of the master (on the 2nd LAN adapter)
@@ -19,15 +21,14 @@ Do not add any users during initial installation of the head node (only root). Y
     
     2.3 If you failed to do above steps do not proceed further.
     
-Please do not e-mail me asking for support. These scripts are not guaranteed to work and are provided for your self-development. However if you are interested, you can join this project and contribute to its development on GitHub.
 
-3) cd oracle_linux_8_hpc
+3) Your installed master node must have the external network adapter configured, up and running, e.g. with NetworkManager or any other way. 
 
-4) Your installed master node must have the external network adapter configured, up and running, e.g. with NetworkManager or any other way. 
+4) The 2nd network adapter must be connected to the internal network of HPC (i.e. via switch or hub), where all the "compute" nodes will be booting up from. All compute nodes must be connected to the same hub with their (not necessarily) 1st network adapter and configured to boot from LAN (PXE boot).
 
-5) The 2nd network adapter must be connected to the internal network of HPC (i.e. via switch or hub), where all the "compute" nodes will be booting up from. All compute nodes must be connected to the same hub with their (not necessarily) 1st network adapter and configured to boot from LAN (PXE boot).
+5) Download OL8 install DVD
 
-4) Download OL8 install DVD and run "./install.sh ../OL8xxxx.iso" from this folder (where ../OL8xxxx.iso is relative path to OL8 iso file). You will be prompted in a minute to enter internal and external LAN interface names. This is the only input required form user.
+6) cd oracle_linux_8_hpc and execute "./install.sh ../OL8xxxx.iso" from this folder (where ../OL8xxxx.iso is relative path to OL8 iso file). You will be prompted in a minute to enter internal and external LAN interface names. This is the only input required form user.
 
 5) Once install.sh finishes, go and power up all your compute nodes (its better to do it one-by-one in an orderly fasion, their hostnames will be based on their DHCP addresses (node1, node2...), so if you want any kind of "system" in their naming make sure they boot with interval, so that previous one already obtained IP before the next one boots). They must be BIOS-configured to boot from network (PXE boot).
 
