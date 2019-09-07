@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Run as sh ./install.sh <full_path_to_OL8_dvd.iso>
+# OL8 dvd (free) can be downloaded from https://edelivery.oracle.com/osdc/faces/Home.jspx (or search for V983280-01.iso)
 
 # Note: your external network interface must be configuured, up and running
 # It will be put in "external zone" of firewalld by this script
@@ -9,7 +10,7 @@
 #################### Do we have an ISO? ##########################
 
 if [ "$1" = "-h" ]; then
-    echo "Usage: `basename $0` /path/to/OS_DVD.iso"
+    echo "Usage: `basename $0` /path/to/OL8_install_DVD.iso"
     exit 0
 elif [ "$1" = "" ]; then
     echo "You have to supply the location if the OL8 dvd ISO file see `basename $0 -h`"
