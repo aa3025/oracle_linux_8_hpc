@@ -35,7 +35,7 @@ Please do not e-mail me asking for support. These scripts are not guaranteed to 
 
 7) Once PXE-install finishes, the nodes will reboot themselves and will mount /home and /share from server via NFS. If you want to share pre-existing /home folder with user files inside, its better rename in before this installation, and when deployment finishes, rename it back to /home and restart nfs-server service.
 
-8) Check if HPC is deployed by doing e.g. "pdsh hostname" -> the nodes must report back their hostnames. Its a good idea to restart dhcpd on master for it to swallow /etc/dhcp/dhcpd.conf the modified by nodes.
+8) Check if HPC is deployed by doing e.g. "pdsh hostname" -> the nodes must report back their hostnames. Its a good idea to restart dhcpd on master for it to swallow /etc/dhcp/dhcpd.conf the modified by nodes (service dhcpd restart).
 If you want to repeat install of a node already deployed previosly, you just need to delete its /tftpboot/grub.cfg-01-xx-xx-xx-xx-xx-xx and /tftpboot/xx-xx-xx-xx-xx-xx files and its records from /etc/pdsh/machines and /etc/dhcp/dhcpd.conf and reset the node(s) without re-running ./install.sh ! Server configuration is permanent, so it still must be able to serve new deployments after reboot (the only thing you need to ensure is that OL8 dvd iso file is mounted after reboot of the master in /var/www/html/OL8).
 
 9) Then you can run optional "./postinstall_from_server.sh" script to add additional rpm's on the master and compute nodes and sync "/etc/hosts" file between the nodes" (not tested yet with OL8, some package names may have been changed since rhel7)
