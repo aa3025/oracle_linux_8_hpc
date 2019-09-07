@@ -6,6 +6,7 @@
 # Note: your external network interface must be configuured, up and running
 # It will be put in "external zone" of firewalld by this script
 
+hpcnet="172.16.0"
 
 #################### Do we have an ISO? ##########################
 
@@ -68,7 +69,7 @@ echo "Here is the list of your network interfaces:"
 # ip link show
 nmcli connection show
 
-echo "Enter your INTERNAL network interface here: (e.g. enp3s0), it will be configured with IP: 172.16.0.254/16 (zone internal):"
+echo "Enter your INTERNAL network interface here: (e.g. enp3s0), it will be configured with IP: $htpcnet.254/16 (zone internal):"
     read eth_int
 
 echo "Enter your EXTERNAL network interface name: (e.g. enp3s1), it will have existing config from /etc/sysconfig/network-scripts/ifcfg-..."
@@ -94,7 +95,7 @@ echo DEVICE=\"$eth_int\" >> /etc/sysconfig/network-scripts/ifcfg-$eth_int
 echo ZONE=\"internal\" >>  /etc/sysconfig/network-scripts/ifcfg-$eth_int
 
 ifconfig $eth_int down
-ifconfig $eth_int 172.16.0.254 netmask 255.255.0.0 broadcast 172.16.0.255
+ifconfig $eth_int $hpcnet.254 netmask 255.255.0.0 broadcast $hpcnet.255
 ifconfig $eth_int up
 
 #ifup $eth_int
