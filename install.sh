@@ -29,7 +29,7 @@ cat ./configs/epel.repo > /etc/yum.repos.d/epel.repo
 #yum install epel-release -y
 #yum install network-scripts -y #depricated
 
-yum install readline ncurses-compat-libs perl -y
+yum install wget readline ncurses-compat-libs perl -y
 
 #fixing pdsh issue
 ln -s /usr/lib64/libreadline.so.7 /usr/lib64/libreadline.so.6
@@ -43,7 +43,7 @@ rpm -Uvh pdsh-* --nodeps
 
 cd ../
 
-yum install mc nano net-tools nfs-utils dhcp-server tftp httpd openssh-server firewalld tftp-server git xinetd syslinux shim syslinux-tftpboot wget vsftpd opensm pdsh infiniband-diags -y
+yum install mc nano net-tools nfs-utils dhcp-server tftp httpd openssh-server firewalld tftp-server git xinetd syslinux shim syslinux-tftpboot vsftpd opensm pdsh infiniband-diags -y
 
 mkdir -p /tftpboot
 
