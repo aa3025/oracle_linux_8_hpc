@@ -7,7 +7,7 @@ Terms:
 
 Deployment steps:
 
-1) install the master node (a.k.a. server, head node) using Oracle Linux 8 ISO (minimal install is OK), boot it, make sure the network is up (configure external LAN during installation of OL8 on master), proceed further from its terminal.Oracle Linux 8 dvd can be downloaded free of cherge from https://edelivery.oracle.com/osdc/faces/Home.jspx  (iso name V983280-01.iso)
+1) install the master node (a.k.a. server, head node) using Oracle Linux 8 ISO (minimal install is OK), boot it, make sure the network is up (configure external LAN during installation of OL8 on master), proceed further from its terminal. Oracle Linux 8 dvd can be downloaded free of charge from https://edelivery.oracle.com/osdc/faces/Home.jspx  (iso name V983280-01.iso)
 
 Do not add any users during initial installation of the head node (only root). You will add other users after deployment of the HPC (using ./scripts/newuser).
 
