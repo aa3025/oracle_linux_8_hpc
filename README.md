@@ -1,4 +1,4 @@
-# centos7hpc
+# Oracle Linux 8 HPC
 This project is collection of bash scripts and config files to automatically deploy CentOS7-based HPC with PXE-install and kickstart files. Supports both BIOS-based and EFI PXE scenarios. Project's webpage is here: https://centoshpc.wordpress.com/
 
 Terms: 
