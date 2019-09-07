@@ -73,7 +73,7 @@ ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no " root@${masterIP} "mkdir 
 
 $mac=`cat /sys/class/net/${device}/address`
 
-mydhcp="host $HOSTNAME { hardware ethernet $mac; option host-name \"\"$HOSTNAME\"\"; fixed-address $SIP;}"
+mydhcp="host $HOSTNAME { hardware ethernet $mac; option host-name \"\"$HOSTNAME\"\"; fixed-address $IP;}"
 ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no " root@${masterIP} "echo \"$mydhcp\" >>/etc/dhcp/dhcpd.conf"
 ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no " root@${masterIP} "ln -s $out_efi /tftpboot/pxelinux.cfg/node$N.efi"
 ssh -i /root/.ssh/id_rsa -o "StrictHostKeyChecking no " root@${masterIP} "ln -s $out_bios /tftpboot/pxelinux.cfg/node$N.bios"
